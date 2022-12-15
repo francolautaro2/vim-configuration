@@ -10,54 +10,29 @@ set sw=4
 set relativenumber
 let mapleader = " "
 set laststatus=2
-set backspace=2
 set guioptions-=T
-set guioptions-=L
+set backspace=indent,eol,start
+set tabstop=4
+
+
 imap jk <Esc>
 
-"Mapping to reload config
-nmap <leader>so :source $HOME\_vimrc<CR>
+nmap <leader>so :source $HOME_\_vimrc<CR>
 nmap <leader>w :w <CR>
 nmap <leader>q :q <CR>
 
 
-if has("gui_running")
+call plug#begin('~/.vim/plugged')
 
-  if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
-  elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h14
-  elseif has("gui_win32")
-    set guifont=Consolas:h11:cANSI
-  endif
-endif
-
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-"
-"
-call plug#begin('~/.vim/pluggeo')
-
-" Temas
-Plug 'morhetz/gruvbox'
-"IDE
-Plug 'easymotion/vim-easymotion'
-"Nerdtree
+"NerdTree
 Plug 'preservim/nerdtree'
-
-Plug 'christoomey/vim-tmux-navigator'
-
-"Python
-Plug 'vim-python/python-syntax'
-
-"Javascript
-Plug 'jelera/vim-javascript-syntax'
-
+"Auto Pairs
+Plug 'jiangmiao/auto-pairs'
+"Gruvbox
+Plug 'morhetz/gruvbox'
 call plug#end()
 
-
-nmap <Leader>nt :NERDTreeFind<CR>
-nmap <Leader>s <Plug>(easymotion-s2)
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = "hard"
+
+nmap <Leader>nt :NERDTreeFind<CR>
