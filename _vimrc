@@ -11,9 +11,10 @@ set relativenumber
 let mapleader = " "
 set laststatus=2
 set guioptions-=T
+set guioptions-=L
 set backspace=indent,eol,start
 set tabstop=4
-
+set mouse=a
 
 imap jk <Esc>
 
@@ -30,6 +31,8 @@ Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 "Gruvbox
 Plug 'morhetz/gruvbox'
+"vim navigator
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 colorscheme gruvbox
